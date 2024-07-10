@@ -1,0 +1,43 @@
+{
+  "comments": {
+    "idPostasdasdsad21313": [
+      {
+        "dataComment": "09.02.2023",
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComment": "Каждый экран принимает componentопору, которая является компонентом React. Эти компоненты получают свойство navigation, которое имеет различные методы",
+        "timeComment": "08:40"
+      },
+      {
+        "dataComment": "09.02.2023",
+        "idComment": 2,
+        "idOwnerComment": 1,
+        "textComment": "Каждый экран принимает componentопору, которая является компонентом React. Эти компоненты получают свойство navigation, которое имеет различные методы",
+        "timeComment": "08:45"
+      },
+      {
+        "dataComment": "09.02.2023",
+        "idComment": 3,
+        "idOwnerComment": 1,
+        "textComment": "Каждый экран принимает componentопору, которая является компонентом React. Эти компоненты получают свойство navigation, которое имеет различные методы",
+        "timeComment": "08:50"
+      }
+    ],
+    "idPostasdasds4534521313": [
+      {
+        "dataComment": "10.02.2023",
+        "idComment": 1,
+        "idOwnerComment": 2,
+        "textComment": "Это другой пост, с другими комментариями",
+        "timeComment": "09:00"
+      },
+      {
+        "dataComment": "10.02.2023",
+        "idComment": 2,
+        "idOwnerComment": 2,
+        "textComment": "Еще один комментарий для второго поста",
+        "timeComment": "09:05"
+      }
+    ]
+  }
+}

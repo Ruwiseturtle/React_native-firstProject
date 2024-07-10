@@ -1,0 +1,118 @@
+ [
+  {
+    "idPost": 1, 
+    "idOwner": 1,
+    "imageUrl": "../assets/images/cones.jpg",
+    "title": "Cones",
+    "adress": "Ivano-Frankivsk Region, Ukraine",
+    "liked": 5,
+    "comments": [
+      {
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "Каждый экран принимает componentопору, которая является компонентом React. Эти компоненты получают свойство navigation, которое имеет различные методы",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      },
+      {
+        "idComment": 2,
+        "idOwnerComment": 2,
+        "textComent": "tralasdasdasdd",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      },
+      {
+        "idComment": 3,
+        "idOwnerComment": 1,
+        "textComent": "Каждый экран принимает componentопору, которая является компонентом React. Эти компоненты получают свойство navigation, которое имеет различные методы для связи с другими экранами. Например, вы можете использовать navigation.navigateдля перехода на Profileэкран:",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      }
+    ],
+    "mapUrl": "https://www.google.com.ua/maps/place/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C/@50.4874537,30.4877853,13.25z/data=!4m6!3m5!1s0x40d4cde96c5f81af:0x112259d9019b4231!8m2!3d50.4835013!4d30.4720509!16s%2Fm%2F027jy2c?hl=ru&entry=ttu"
+  },
+  {
+    
+    "idPost": 2,
+    "idOwner": 1,
+    "imageUrl": "../assets/images/mountains.jpg",
+    "title": "Mountains",
+    "adress": "Ivano-Frankivsk Region, Ukraine",
+    "liked": 3,
+    "comments": [
+      {
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "ssssssssss swwwwwwwww trala mountainsmountains mountains",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:45"
+      }
+    ],
+    "mapUrl": "https://www.google.com.ua/maps/place/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C/@50.4874537,30.4877853,13.25z/data=!4m6!3m5!1s0x40d4cde96c5f81af:0x112259d9019b4231!8m2!3d50.4835013!4d30.4720509!16s%2Fm%2F027jy2c?hl=ru&entry=ttu"
+   
+},
+{    
+    "idPost": 3,
+    "idOwner": 1,
+    "imageUrl": "../assets/images/squirrel.jpg",
+    "title": "Squirrel",
+    "adress": "Ivano-Frankivsk Region, Ukraine",
+    "liked": 1,
+    "comments": [
+      {
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "trala",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      }
+    ],
+    "mapUrl": "https://www.google.com.ua/maps/place/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C/@50.4874537,30.4877853,13.25z/data=!4m6!3m5!1s0x40d4cde96c5f81af:0x112259d9019b4231!8m2!3d50.4835013!4d30.4720509!16s%2Fm%2F027jy2c?hl=ru&entry=ttu"
+   
+},
+{    
+    "idPost": 4,
+    "idOwner": 1,
+    "imageUrl": "../assets/images/squirrel.jpg",
+    "title": "Squirrel",
+    "adress": "Ivano-Frankivsk Region, Ukraine",
+    "liked": 7,
+    "comments": [
+      {
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "trala",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      }
+    ],
+    "mapUrl": "https://www.google.com.ua/maps/place/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C/@50.4874537,30.4877853,13.25z/data=!4m6!3m5!1s0x40d4cde96c5f81af:0x112259d9019b4231!8m2!3d50.4835013!4d30.4720509!16s%2Fm%2F027jy2c?hl=ru&entry=ttu"
+   
+},
+{    
+    "idPost": 5,
+    "idOwner": 1,
+    "imageUrl": "../assets/images/squirrel.jpg",
+    "title": "Squirrel",
+    "adress": "Ivano-Frankivsk Region, Ukraine",
+    "liked": 9,
+    "comments": [
+      {
+        "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "trala",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      },
+       {
+       "idComment": 1,
+        "idOwnerComment": 1,
+        "textComent": "trala",
+        "dataComent": "09.02.2023",
+        "timeComent": "08:40"
+      }
+    ],
+    "mapUrl": "https://www.google.com.ua/maps/place/%D0%9A%D0%B8%D1%80%D0%B8%D0%BB%D0%BB%D0%BE%D0%B2%D1%81%D0%BA%D0%B0%D1%8F+%D1%86%D0%B5%D1%80%D0%BA%D0%BE%D0%B2%D1%8C/@50.4874537,30.4877853,13.25z/data=!4m6!3m5!1s0x40d4cde96c5f81af:0x112259d9019b4231!8m2!3d50.4835013!4d30.4720509!16s%2Fm%2F027jy2c?hl=ru&entry=ttu"
+   
+}
+]

@@ -1,0 +1,30 @@
+[
+    {
+        "userId": 1,
+        "FirstName": "Kisa",
+        "SecondName": "Tcarapovna",
+        "email": "Kisa@gmail.com",
+        "userPhoto": "./assets/images/testAvatar.jpg"
+    },
+    {
+         "userId": 2,
+        "FirstName": "Nakak",
+        "SecondName": "Poprigailo",
+        "email": "Nakak@gmail.com",
+        "userPhoto": "./assets/images/testAvatar2.jpg"
+    },
+       {
+         "userId": 3,
+        "FirstName": "Murchik",
+        "SecondName": "Pushistik",
+        "email": "Murchik@gmail.com",
+        "userPhoto": "./assets/images/testAvatar3.jpg"
+    },
+       {
+         "userId": 4,
+        "FirstName": "Kys",
+        "SecondName": "Groznii",
+        "email": "Kys@gmail.com",
+        "userPhoto": "./assets/images/testAvatar4.jpg"
+    }
+]
