@@ -3,11 +3,11 @@
 # dependencies
 node_modules/
 .env
-google-services.json
-config.js
-google-servesejson/
-firebase/
 android/
+firebase/
+google-servesejson/
+config.js
+google-services.json
 
 # Expo
 .expo/
