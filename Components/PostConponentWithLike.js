@@ -5,11 +5,11 @@ import { useNavigation } from "@react-navigation/native";
 const PostConponentWithLike = ({ post, userId }) => {
   const navigation = useNavigation();
 
-  console.log('==================== Post Component with like ================');
-  console.log(post);
-  console.log("================ userId ====================");
-  console.log(userId);
-  console.log('====================================');
+  // console.log('==================== Post Component with like ================');
+  // console.log(post);
+  // console.log("================ userId ====================");
+  // console.log(userId);
+  // console.log('====================================');
   const toComments = () => {
     navigation.navigate("CommentsScreen", { post: { post }, userId: userId });
   };

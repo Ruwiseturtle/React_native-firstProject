@@ -58,8 +58,8 @@ const LoginScreen = ({ navigation }) => {
       await signInWithEmailAndPassword(auth, email, password);
        clearUserData(); 
 
-      console.log('шлях до аватарки');
-      console.log(auth.currentUser.photoURL);
+      // console.log('шлях до аватарки');
+      // console.log(auth.currentUser.photoURL);
      
       const user = {
         login: auth.currentUser.displayName,
@@ -68,9 +68,9 @@ const LoginScreen = ({ navigation }) => {
         photoURL: auth.currentUser.photoURL,
       };
 
-       console.log("================user====================");
-       console.log(user);
-      console.log("====================================");
+      //  console.log("================user====================");
+      //  console.log(user);
+      // console.log("====================================");
       
       const token = auth.currentUser.stsTokenManager.accessToken;
 

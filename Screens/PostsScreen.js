@@ -58,6 +58,9 @@ const PostsScreen = () => {
     };
   }, [dispatch]); // Порожній масив, щоб викликати лише один раз після монтажу
 
+  console.log("loading");
+  console.log(loading);
+
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
@@ -68,9 +71,14 @@ const PostsScreen = () => {
   }
 
   const postsArray = Array.isArray(posts) ? posts : [];
+  //const postsArray = [];
 
   if (!postsArray.length) {
-    return <Text>No posts found.</Text>;
+    return (
+      <View style={styles.noPostsContainer}>
+        <Text style={styles.noPostsText}>No posts found.</Text>
+      </View>
+    );
   }
 
   return (
@@ -121,8 +129,20 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  noPostsContainer: {
+    flex: 1,
+    justifyContent: "center", // по горизонталі
+    alignItems: "center", // по вертикалі
+  },
+  noPostsText: {
+    textAlign: "center",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
   loading: {
     fontSize: 18,
+    justifyContent: "center",
+    alignItems: "center",
     textAlign: "center",
   },
   avatarContainer: {

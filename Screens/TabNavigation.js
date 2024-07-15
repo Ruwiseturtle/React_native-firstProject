@@ -23,7 +23,7 @@ function TabNavigation() {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
-          backgroundColor: "#E5E5E5",
+          backgroundColor: "#FFFFFF",
           borderColor: "#212121",
           // paddingHorizontal: 16,
         },
@@ -48,7 +48,7 @@ function TabNavigation() {
             <View
               style={[
                 styles.containerIcon,
-                { backgroundColor: focused ? "#FF6C00" : "#E5E5E5" },
+                { backgroundColor: focused ? "#FF6C00" : "#ffffff" },
               ]}
             >
               <Image
@@ -81,7 +81,7 @@ function TabNavigation() {
             <View
               style={[
                 styles.containerIcon,
-                { backgroundColor: focused ? "#FF6C00" : "#E5E5E5" },
+                { backgroundColor: focused ? "#FF6C00" : "#FFFFFF" },
               ]}
             >
               <Image
@@ -99,7 +99,7 @@ function TabNavigation() {
         options={{
           headerShown: false,
           headerTitle: "Профіль",
-          
+
           tabBarLabel: ({ focused }) => (
             <Text style={{ fontSize: 0, color: "red" }}>Профіль</Text>
           ),
@@ -108,7 +108,7 @@ function TabNavigation() {
             <View
               style={[
                 styles.containerIcon,
-                { backgroundColor: focused ? "#FF6C00" : "#E5E5E5" },
+                { backgroundColor: focused ? "#FF6C00" : "#FFFFFF" },
               ]}
             >
               <Image

@@ -31,8 +31,8 @@ const CommentsScreen = ({ navigation, route }) => {
     return acc;
   }, {});
 
-  console.log("&&&&&&&&&7 users &&&&&&&&&&&&&&");
-  console.log(users);
+  // console.log("&&&&&&&&&7 users &&&&&&&&&&&&&&");
+  // console.log(users);
 
   useEffect(() => {
     const postRef = doc(db, "posts", post.idPost);
