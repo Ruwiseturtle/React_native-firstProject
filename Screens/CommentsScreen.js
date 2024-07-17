@@ -31,8 +31,8 @@ const CommentsScreen = ({ navigation, route }) => {
     return acc;
   }, {});
 
-  // console.log("&&&&&&&&&7 users &&&&&&&&&&&&&&");
-  // console.log(users);
+  console.log("&&&&&&&&&7 users &&&&&&&&&&&&&&");
+  console.log(users);
 
   useEffect(() => {
     const postRef = doc(db, "posts", post.idPost);
@@ -55,9 +55,10 @@ const CommentsScreen = ({ navigation, route }) => {
       textComment: textComment,
     };
 
+
     if (newComment.textComment) {
       try {
-        await addCommentPost(post.key, newComment, userId);
+        await addCommentPost(post.idPost, newComment);
         setTextComment(""); // очищення текстового поля після відправки
         scrollViewRef.current?.scrollToEnd({ animated: true }); // прокрутка до кінця
       } catch (error) {

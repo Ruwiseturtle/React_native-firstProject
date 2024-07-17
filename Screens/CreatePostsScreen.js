@@ -30,7 +30,7 @@ import { sentPostToServer } from "../API/posts/sentPostToServer";
 // import { db } from "../firebase/config";
 // import { collection, addDoc } from "firebase/firestore";
 
-const API_KEY = "AIzaSyAoMfMWan9zQ2px7och1Z24q5g3DkZ8UD8";
+const API_KEY = "AIzaSyDvGfRxGOqWD_uBhcgnOUGkvXMTbrAeFzE";
 Geocoder.init(API_KEY);
 
 const CreatePostsScreen = () => {
