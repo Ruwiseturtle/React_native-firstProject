@@ -51,7 +51,7 @@ export default {
         process.env.SERVICE_ACCOUNT_CLIENT_X509_CERT_URL,
       SERVICE_ACCOUNT_UNIVERSE_DOMAIN:
         process.env.SERVICE_ACCOUNT_UNIVERSE_DOMAIN,
-      
+      GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
     },
   },
 };

@@ -16,34 +16,30 @@ import {
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import "react-native-get-random-values"; // це не видаляти, воно необхідне для нормальної роботи uuidv4
-import { WebView } from "react-native-webview"; // це не видаляти, воно необхідне для нормальної роботи uuidv4
 import { v4 as uuidv4 } from "uuid"; // для генерації унікальної строки
 import * as ImagePicker from "expo-image-picker";
-import CastomTextIIconInput from "../Components/CastomTextIIconInput";
-import Geocoder from "react-native-geocoding"; //бібліотека для то переводу координат у назву населеного пункта
+import Geocoder from "react-native-geocoding"; // бібліотека для то переводу координат у назву населеного пункта
 import { Camera } from "expo-camera/legacy";
 import { getFileName } from "../functions/getFileName";
 import { sendImageToStorage } from "../API/sendImageToStorage";
 import * as selectors from "../redux/selectors";
 import { sentPostToServer } from "../API/posts/sentPostToServer";
 
-// import { db } from "../firebase/config";
-// import { collection, addDoc } from "firebase/firestore";
+// для підтягування секретних змінних
+import Constants from "expo-constants";
+const { extra } = Constants.expoConfig;
 
-const API_KEY = "AIzaSyDvGfRxGOqWD_uBhcgnOUGkvXMTbrAeFzE";
+const API_KEY = extra.GOOGLE_MAPS_API_KEY;
 Geocoder.init(API_KEY);
 
 const CreatePostsScreen = () => {
-  //змінні для камери
-  const [hasPermission, setHasPermission] = useState(null); //дозвіл для камери
-  const [cameraRef, setCameraRef] = useState(null); //доробити
+  const [hasPermission, setHasPermission] = useState(null);
+  const [cameraRef, setCameraRef] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  //змінні для карти
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [locationName, setLocationName] = useState("");
   const [isMapVisible, setIsMapVisible] = useState(false);
   const [mapUrl, setMapUrl] = useState(null);
-  //інші змінні
   const [title, setTitle] = useState(null);
   const currentUser = useSelector(selectors.selectCurrentUser);
   const userId = currentUser.uid;
@@ -55,7 +51,6 @@ const CreatePostsScreen = () => {
     })();
   }, []);
 
-  // Функція для отримання назви місцевості за координатами
   const getLocationName = async (latitude, longitude) => {
     try {
       const response = await Geocoder.from(latitude, longitude);
@@ -72,17 +67,13 @@ const CreatePostsScreen = () => {
     }
   };
 
-  // ф-ція для отримання координат на карті и приховання карти після цього
   const handleMapPress = async (event) => {
     const { coordinate } = event.nativeEvent;
-
     const locationName = await getLocationName(
       coordinate.latitude,
       coordinate.longitude
     );
     setSelectedLocation(coordinate);
-    console.log("координаты");
-    console.log(coordinate);
     setLocationName(locationName);
     setMapUrl(
       `https://www.google.com/maps/search/?api=1&query=${coordinate.latitude},${coordinate.longitude}`
@@ -92,13 +83,11 @@ const CreatePostsScreen = () => {
 
   const publishPost = async () => {
     if (selectedImage && selectedLocation && locationName && title) {
-      // спочатку відправляємо картинку на firebase/storage/postImages
       const imageUrl = await sendImageToStorage(selectedImage);
-
       let newPost = {
         adress: locationName,
         idOwner: userId,
-        idPost: uuidv4(), 
+        idPost: uuidv4(),
         imageName: getFileName(selectedImage),
         imageUrl: imageUrl,
         liked: 0,
@@ -114,26 +103,18 @@ const CreatePostsScreen = () => {
     }
   };
 
-
-  function clearDataPost() {
-    setTitle(null);
-    setSelectedImage(null);
-    setLocationName(null);
-    setSelectedLocation(null);
-  }
-  
-  const deletePost = () => {
-    console.log("видаляємо пост");
-
+  const clearDataPost = () => {
     setTitle(null);
     setSelectedImage(null);
     setLocationName(null);
     setSelectedLocation(null);
   };
 
+  const deletePost = () => {
+    clearDataPost();
+  };
+
   const takePicture = async () => {
-    setSelectedImage(null);
-    console.log("фотографуємо");
     if (cameraRef) {
       const photo = await cameraRef.takePictureAsync();
       setSelectedImage(photo.uri);
@@ -141,17 +122,13 @@ const CreatePostsScreen = () => {
   };
 
   const selectPhoto = async () => {
-    setSelectedImage(null);
     let permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
-
     if (permissionResult.granted === false) {
       alert("Open the resolution for your camera!");
       return;
     }
-
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-
     if (pickerResult.canceled === true) {
       return;
     }
@@ -169,16 +146,14 @@ const CreatePostsScreen = () => {
         keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
         style={styles.boxKeyboard}
       >
-        {/* завантаження фото */}
         <ScrollView
           contentContainerStyle={styles.scrollViewContent}
           showsVerticalScrollIndicator={false}
         >
+          {/* для завантаження фото */}
           <View style={styles.photoBox}>
-            {/* тут буде камера */}
             {hasPermission ? (
               <Camera style={styles.camera} ref={(ref) => setCameraRef(ref)}>
-                {/* якщо вибрана камера, то загружаємо фото з камери */}
                 <View>
                   <Pressable
                     style={styles.pressTextTakePicture}
@@ -214,7 +189,7 @@ const CreatePostsScreen = () => {
             </TouchableOpacity>
           </View>
 
-          {/* ввід назви */}
+          {/* для назви фото */}
           <TextInput
             style={[styles.inputTitle, { marginTop: 32 }]}
             onChangeText={(e) => setTitle(e)}
@@ -222,22 +197,18 @@ const CreatePostsScreen = () => {
             placeholder={"Назва..."}
             placeholderTextColor={"#BDBDBD"}
           />
-
-          {/* вибір локації місцевості */}
+          {/* інпут для назви місцевості, яку вибираємо з карти */}
           <TouchableOpacity style={styles.containerIconMap}>
-            <CastomTextIIconInput
+            <TextInput
               onFocus={() => setIsMapVisible(true)}
-              // value={selectedLocation ? `${selectedLocation.latitude}, ${selectedLocation.longitude}`
-              //     : ""
-              // }
-              value={selectedLocation ? locationName : ""}
+              value={locationName}
               placeholder="Місцевість..."
               placeholderTextColor={"#BDBDBD"}
-              icon="location-on"
+              style={styles.inputTitle}
             />
           </TouchableOpacity>
 
-          {/* тут зявляється карта */}
+          {/* тут випливає карта */}
           {isMapVisible && (
             <View style={styles.mapContainer}>
               <MapView
@@ -255,7 +226,6 @@ const CreatePostsScreen = () => {
             </View>
           )}
 
-          {/* кнопка опублікувати */}
           <Pressable
             style={[
               styles.publishButton,
@@ -281,7 +251,6 @@ const CreatePostsScreen = () => {
             </Text>
           </Pressable>
 
-          {/* кнопка видалити */}
           <Pressable
             style={[styles.deleteBox, { marginTop: 120 }]}
             onPress={deletePost}
@@ -308,7 +277,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 8,
-    // backgroundColor: "blue",
   },
   circleBoxForPhoto: {
     width: 60,
@@ -322,7 +290,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     alignItems: "center",
-    // backgroundColor: "violet",
   },
   imagePost: {
     width: "100%",
@@ -331,8 +298,6 @@ const styles = StyleSheet.create({
   },
   containerText: {
     alignSelf: "flex-start",
-    // width: "100%",
-    // backgroundColor: "yellow",
   },
   text: {
     color: "#BDBDBD",
@@ -341,14 +306,12 @@ const styles = StyleSheet.create({
     width: "100%",
     alignSelf: "flex-start",
     fontFamily: "Roboto",
-    // paddingTop: 16,
     marginTop: 16,
     paddingBottom: 16,
     alignItems: "center",
     justifyContent: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#BDBDBD",
-    // backgroundColor: "red",
     zIndex: 100,
   },
   containerIconMap: {
@@ -371,10 +334,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 32,
   },
-  // стилі для карти
   mapContainer: {
     position: "absolute",
-    width: "110%",
+    width: "100%",
     height: "110%",
     borderWidth: 1,
     borderColor: "#ccc",
@@ -385,7 +347,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
-  //стилі для камери
   camera: {
     width: "100%",
     height: "100%",
@@ -394,7 +355,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
-    // flex: 1,
     justifyContent: "flex-end",
     alignItems: "center",
   },
