@@ -4,6 +4,7 @@ import { gStyle } from "../styles/style";
 import MapView, { Marker } from "react-native-maps";
 
 const MapScreen = () => {
+
   return (
     <View style={gStyle.container}>
       <MapView

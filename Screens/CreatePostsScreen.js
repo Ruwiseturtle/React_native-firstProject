@@ -29,8 +29,15 @@ import { sentPostToServer } from "../API/posts/sentPostToServer";
 import Constants from "expo-constants";
 const { extra } = Constants.expoConfig;
 
-const API_KEY = extra.GOOGLE_MAPS_API_KEY;
-Geocoder.init(API_KEY);
+const GOOGLE_MAPS_API_KEY = extra.GOOGLE_MAPS_API_KEY;
+Geocoder.init(GOOGLE_MAPS_API_KEY);
+
+if (GOOGLE_MAPS_API_KEY) {
+  Geocoder.init(GOOGLE_MAPS_API_KEY);
+} else {
+  console.error("Google Maps API key is missing");
+  Alert.alert("Error", "Google Maps API key is missing");
+}
 
 const CreatePostsScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -49,6 +56,7 @@ const CreatePostsScreen = () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === "granted");
     })();
+    setIsMapVisible(false);
   }, []);
 
   const getLocationName = async (latitude, longitude) => {
@@ -82,25 +90,29 @@ const CreatePostsScreen = () => {
   };
 
   const publishPost = async () => {
-    if (selectedImage && selectedLocation && locationName && title) {
-      const imageUrl = await sendImageToStorage(selectedImage);
-      let newPost = {
-        adress: locationName,
-        idOwner: userId,
-        idPost: uuidv4(),
-        imageName: getFileName(selectedImage),
-        imageUrl: imageUrl,
-        liked: 0,
-        mapUrl: mapUrl,
-        title: title,
-        comments: [],
-      };
+    // if (selectedImage && selectedLocation && locationName && title) {
+    if (selectedImage && title) {
+      console.log('jjjjjjjjjjjjjjjjj');
+      console.log(locationName);
 
-      await sentPostToServer(newPost);
-      clearDataPost();
-    } else {
-      Alert.alert("Заповніть усі поля, будь-ласка!");
-    }
+       const imageUrl = await sendImageToStorage(selectedImage);
+       let newPost = {
+         adress: locationName ? locationName: 'координати, не вибрані',
+         idOwner: userId,
+         idPost: uuidv4(),
+         imageName: getFileName(selectedImage),
+         imageUrl: imageUrl,
+         liked: 0,
+         mapUrl: mapUrl ? mapUrl: 'https://www.google.com/maps/search/?api=1&query=50.421234593086595,30.382913388311863',
+         title: title,
+         comments: [],
+       };
+
+       await sentPostToServer(newPost);
+       clearDataPost();
+     } else {
+       Alert.alert("Заповніть усі поля, будь-ласка!");
+     }
   };
 
   const clearDataPost = () => {
@@ -232,7 +244,7 @@ const CreatePostsScreen = () => {
               { marginTop: 48 },
               {
                 backgroundColor:
-                  selectedImage && title && selectedLocation && locationName
+                  selectedImage && title
                     ? "#FF6C00"
                     : "#F6F6F6",
               },
@@ -242,7 +254,7 @@ const CreatePostsScreen = () => {
             <Text
               style={{
                 color:
-                  selectedImage && title && selectedLocation && locationName
+                  selectedImage && title 
                     ? "white"
                     : "#BDBDBD",
               }}
