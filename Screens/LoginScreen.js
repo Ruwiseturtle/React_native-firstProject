@@ -13,8 +13,8 @@ import {
 } from "react-native";
 import {
   signInWithEmailAndPassword,
-  onAuthStateChanged,
-  updateProfile,
+  // onAuthStateChanged,
+  // updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase/config";
 import { setCurrentUser, setToken } from "../redux/auth/authReducer";

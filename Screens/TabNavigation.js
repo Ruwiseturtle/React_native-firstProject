@@ -4,8 +4,7 @@ import CreatePostsScreen from "./CreatePostsScreen";
 import ProfileScreen from "./ProfileScreen";
 import { Image, View, Text, StyleSheet } from "react-native";
 import CustomHeaderBackButton from "../Components/CustomHeaderBackButton";
-import { useRoute } from "@react-navigation/native";
-import React, { useState } from "react";
+import React from "react";
 
 const Tab = createBottomTabNavigator();
 

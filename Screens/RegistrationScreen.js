@@ -11,11 +11,11 @@ import {
   KeyboardAvoidingView,
   Keyboard,
   Platform,
-  Alert,
+  // Alert,
 } from "react-native";
 import {
   createUserWithEmailAndPassword,
-  onAuthStateChanged,
+  // onAuthStateChanged,
   updateProfile,
 } from "firebase/auth";
 import { useDispatch } from "react-redux";

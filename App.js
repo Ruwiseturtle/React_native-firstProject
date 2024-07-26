@@ -6,6 +6,10 @@ import { useFonts } from "expo-font";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import "react-native-gesture-handler";
+import { enableScreens } from "react-native-screens";
+
+enableScreens();
 
 export default function App() {
   const [fontsLoaded] = useFonts({

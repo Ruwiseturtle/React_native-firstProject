@@ -21,6 +21,7 @@ export default {
       supportsTablet: true,
     },
     android: {
+      package: "com.example.yourapp",
       adaptiveIcon: {
         foregroundImage: "./assets/adaptive-icon.png",
         backgroundColor: "#FFFFFF",
@@ -30,6 +31,9 @@ export default {
       favicon: "./assets/favicon.png",
     },
     extra: {
+      eas: {
+        projectId: "5b4b63fb-c7a4-4447-a5a7-5ff5f775647a",
+      },
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY,
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN,
       FIREBASE_DATABASE_URL: process.env.FIREBASE_DATABASE_URL,
@@ -52,6 +56,17 @@ export default {
       SERVICE_ACCOUNT_UNIVERSE_DOMAIN:
         process.env.SERVICE_ACCOUNT_UNIVERSE_DOMAIN,
       GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
+
+      ...(process.env.NODE_ENV === "development"
+        ? {
+            debugMode: true,
+            databaseUrl: "http://localhost:3000",
+            logLevel: "debug",
+            // можна інші налаштування для розробки
+          }
+        : {
+            // тут налаштування для production (тобто коли викладаємо на реальний сервер з реальною бд і т.д.)
+          }),
     },
   },
 };
