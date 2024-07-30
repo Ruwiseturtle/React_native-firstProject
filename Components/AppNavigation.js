@@ -139,11 +139,11 @@ const AppNavigation = () => {
             component={PostsScreen}
             options={{ title: "Коментарі", headerTitleAlign: "center" }}
           /> */}
-                <Stack.Screen
+                {/* <Stack.Screen
                   name="MapScreen"
                   component={MapScreen}
                   options={{ headerShown: false }}
-                />
+                /> */}
               </Stack.Navigator>
             </NavigationContainer>
             <StatusBar style="auto" />

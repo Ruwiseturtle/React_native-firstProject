@@ -17,11 +17,9 @@ const PostConponentWithLike = ({ post, userId, urlAvatar }) => {
     try {
       // Отримуємо посилання на документ поста
       const postRef = doc(db, "posts", post.idPost);
-    
       // Отримуємо поточні дані поста
       const postSnapshot = await getDoc(postRef);
       if (postSnapshot.exists()) {
-        console.log('документ має бути');
         // Отримуємо поточне значення поля liked
         const currentLikes = postSnapshot.data().liked;
         // Збільшуємо значення на 1
