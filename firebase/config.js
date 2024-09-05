@@ -4,8 +4,7 @@ import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 import { getAuth } from "firebase/auth";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
-import { getDatabase } from "firebase/database";
-import firebase from "firebase/app";
+
 import "firebase/firestore";
 
 // для витягування секретних змінних з файлу app.config.json (в який витягнули ці змінні з .env)

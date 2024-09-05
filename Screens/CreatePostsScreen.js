@@ -163,10 +163,12 @@ const CreatePostsScreen = () => {
                       Зробити знімок
                     </Text>
                   </Pressable>
-                  <Image
-                    style={styles.photoPost}
-                    source={{ uri: selectedImage }}
-                  />
+                  {selectedImage && (
+                    <Image
+                      style={styles.photoPost}
+                      source={{ uri: selectedImage }}
+                    />
+                  )}
                 </View>
               </Camera>
             ) : (

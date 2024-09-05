@@ -31,8 +31,6 @@ const CommentsScreen = ({ navigation, route }) => {
     return acc;
   }, {});
 
-  console.log("&&&&&&&&&7 users &&&&&&&&&&&&&&");
-  console.log(users);
 
   useEffect(() => {
     const postRef = doc(db, "posts", post.idPost);
@@ -40,7 +38,7 @@ const CommentsScreen = ({ navigation, route }) => {
       if (doc.exists()) {
         setComments(doc.data().comments || []);
       } else {
-        console.log("Документ не існує!");
+        console.log("Документ не існує! 2");
       }
     });
 

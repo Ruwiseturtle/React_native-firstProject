@@ -41,7 +41,8 @@ export default {
       FIREBASE_STORAGE_BUCKET: process.env.FIREBASE_STORAGE_BUCKET,
       FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID,
       FIREBASE_APP_ID: process.env.FIREBASE_APP_ID,
-      serviceAccountKey_private_key: process.env.serviceAccountKey_private_key,
+      SERVICE_ACCOUNT_KEY_PRIVATE_KEY:
+        process.env.SERVICE_ACCOUNT_KEY_PRIVATE_KEY,
       SERVICE_ACCOUNT_PRIVATE_KEY_ID:
         process.env.SERVICE_ACCOUNT_PRIVATE_KEY_ID,
       SERVICE_ACCOUNT_TYPE: process.env.SERVICE_ACCOUNT_TYPE,
@@ -68,5 +69,6 @@ export default {
             // тут налаштування для production (тобто коли викладаємо на реальний сервер з реальною бд і т.д.)
           }),
     },
+    plugins: ["expo-router"],
   },
 };
