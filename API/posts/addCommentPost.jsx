@@ -1,7 +1,8 @@
 import { doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
-export const addCommentPost = async (idPost, newComment, userId) => {
+export const addCommentPost = async (idPost, newComment) => {
+ 
   try {
     // Отримуємо посилання на документ поста
     const postRef = doc(db, "posts", idPost);

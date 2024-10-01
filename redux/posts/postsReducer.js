@@ -27,8 +27,8 @@ const postsSlice = createSlice({
       })
       .addCase(getPostsThunks2.fulfilled, (state, action) => {
         console.log("status fullfilled posts");
-        state.isLoading = false;
         state.posts = action.payload;
+        state.isLoading = false;
       })
       .addCase(getPostsThunks2.rejected, (state, action) => {
         console.log("status error posts");
